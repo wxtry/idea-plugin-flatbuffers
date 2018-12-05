@@ -75,7 +75,7 @@ public interface FlatbuffersTypes {
   class Factory {
     public static PsiElement createElement(ASTNode node) {
       IElementType type = node.getElementType();
-       if (type == ATTRIBUTE_DECL) {
+      if (type == ATTRIBUTE_DECL) {
         return new FlatbuffersAttributeDeclImpl(node);
       }
       else if (type == BUILTIN_TYPE) {

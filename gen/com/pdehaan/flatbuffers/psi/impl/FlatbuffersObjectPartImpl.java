@@ -13,7 +13,7 @@ import com.pdehaan.flatbuffers.psi.*;
 
 public class FlatbuffersObjectPartImpl extends ASTWrapperPsiElement implements FlatbuffersObjectPart {
 
-  public FlatbuffersObjectPartImpl(ASTNode node) {
+  public FlatbuffersObjectPartImpl(@NotNull ASTNode node) {
     super(node);
   }
 

@@ -13,7 +13,7 @@ import com.pdehaan.flatbuffers.psi.*;
 
 public class FlatbuffersFileIdentifierDeclImpl extends ASTWrapperPsiElement implements FlatbuffersFileIdentifierDecl {
 
-  public FlatbuffersFileIdentifierDeclImpl(ASTNode node) {
+  public FlatbuffersFileIdentifierDeclImpl(@NotNull ASTNode node) {
     super(node);
   }
 

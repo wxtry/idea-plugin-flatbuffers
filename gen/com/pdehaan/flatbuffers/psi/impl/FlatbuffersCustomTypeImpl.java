@@ -13,7 +13,7 @@ import com.pdehaan.flatbuffers.psi.*;
 
 public class FlatbuffersCustomTypeImpl extends ASTWrapperPsiElement implements FlatbuffersCustomType {
 
-  public FlatbuffersCustomTypeImpl(ASTNode node) {
+  public FlatbuffersCustomTypeImpl(@NotNull ASTNode node) {
     super(node);
   }
 

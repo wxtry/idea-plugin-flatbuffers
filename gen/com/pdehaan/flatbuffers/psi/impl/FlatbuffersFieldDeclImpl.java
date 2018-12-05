@@ -13,7 +13,7 @@ import com.pdehaan.flatbuffers.psi.*;
 
 public class FlatbuffersFieldDeclImpl extends ASTWrapperPsiElement implements FlatbuffersFieldDecl {
 
-  public FlatbuffersFieldDeclImpl(ASTNode node) {
+  public FlatbuffersFieldDeclImpl(@NotNull ASTNode node) {
     super(node);
   }
 
@@ -30,6 +30,12 @@ public class FlatbuffersFieldDeclImpl extends ASTWrapperPsiElement implements Fl
   @NotNull
   public FlatbuffersFieldName getFieldName() {
     return findNotNullChildByClass(FlatbuffersFieldName.class);
+  }
+
+  @Override
+  @NotNull
+  public FlatbuffersMetadata getMetadata() {
+    return findNotNullChildByClass(FlatbuffersMetadata.class);
   }
 
   @Override

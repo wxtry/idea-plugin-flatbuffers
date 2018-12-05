@@ -11,6 +11,9 @@ public interface FlatbuffersFieldDecl extends PsiElement {
   FlatbuffersFieldName getFieldName();
 
   @NotNull
+  FlatbuffersMetadata getMetadata();
+
+  @NotNull
   FlatbuffersType getType();
 
 }

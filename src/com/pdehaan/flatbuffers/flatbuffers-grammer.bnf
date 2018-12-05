@@ -38,7 +38,7 @@ type_decl_name ::= IDENTIFIER
 
 root_decl ::= ROOT_TYPE IDENTIFIER SEMICOLON
 
-field_decl ::= field_name COLON type [ EQUAL INTEGER_LITERAL ] SEMICOLON
+field_decl ::= field_name COLON type [ EQUAL INTEGER_LITERAL ] metadata SEMICOLON
 
 field_name ::= IDENTIFIER
 

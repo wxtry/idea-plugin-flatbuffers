@@ -167,10 +167,8 @@ public class FlatbuffersParser implements PsiParser, LightPsiParser {
   private static boolean enum_decl_0(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "enum_decl_0")) return false;
     boolean r;
-    Marker m = enter_section_(b);
     r = consumeToken(b, ENUM);
     if (!r) r = consumeToken(b, UNION);
-    exit_section_(b, m, null, r);
     return r;
   }
 
@@ -213,11 +211,10 @@ public class FlatbuffersParser implements PsiParser, LightPsiParser {
   // ( COMMA enumval_decl ) *
   private static boolean enum_decl_5_0_1(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "enum_decl_5_0_1")) return false;
-    int c = current_position_(b);
     while (true) {
+      int c = current_position_(b);
       if (!enum_decl_5_0_1_0(b, l + 1)) break;
       if (!empty_element_parsed_guard_(b, "enum_decl_5_0_1", c)) break;
-      c = current_position_(b);
     }
     return true;
   }
@@ -254,7 +251,7 @@ public class FlatbuffersParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // field_name COLON type [ EQUAL INTEGER_LITERAL ] SEMICOLON
+  // field_name COLON type [ EQUAL INTEGER_LITERAL ] metadata SEMICOLON
   public static boolean field_decl(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "field_decl")) return false;
     if (!nextTokenIs(b, IDENTIFIER)) return false;
@@ -264,6 +261,7 @@ public class FlatbuffersParser implements PsiParser, LightPsiParser {
     r = r && consumeToken(b, COLON);
     r = r && type(b, l + 1);
     r = r && field_decl_3(b, l + 1);
+    r = r && metadata(b, l + 1);
     r = r && consumeToken(b, SEMICOLON);
     exit_section_(b, m, FIELD_DECL, r);
     return r;
@@ -373,11 +371,10 @@ public class FlatbuffersParser implements PsiParser, LightPsiParser {
   // ( COMMA metadata_part ) *
   private static boolean metadata_0_1_0_1(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "metadata_0_1_0_1")) return false;
-    int c = current_position_(b);
     while (true) {
+      int c = current_position_(b);
       if (!metadata_0_1_0_1_0(b, l + 1)) break;
       if (!empty_element_parsed_guard_(b, "metadata_0_1_0_1", c)) break;
-      c = current_position_(b);
     }
     return true;
   }
@@ -441,11 +438,10 @@ public class FlatbuffersParser implements PsiParser, LightPsiParser {
   // ( DOT IDENTIFIER ) *
   private static boolean namespace_decl_2(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "namespace_decl_2")) return false;
-    int c = current_position_(b);
     while (true) {
+      int c = current_position_(b);
       if (!namespace_decl_2_0(b, l + 1)) break;
       if (!empty_element_parsed_guard_(b, "namespace_decl_2", c)) break;
-      c = current_position_(b);
     }
     return true;
   }
@@ -484,11 +480,10 @@ public class FlatbuffersParser implements PsiParser, LightPsiParser {
   // ( COMMA object_part ) *
   private static boolean object_0_1(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "object_0_1")) return false;
-    int c = current_position_(b);
     while (true) {
+      int c = current_position_(b);
       if (!object_0_1_0(b, l + 1)) break;
       if (!empty_element_parsed_guard_(b, "object_0_1", c)) break;
-      c = current_position_(b);
     }
     return true;
   }
@@ -566,11 +561,10 @@ public class FlatbuffersParser implements PsiParser, LightPsiParser {
   // include_decl *
   private static boolean schema_0(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "schema_0")) return false;
-    int c = current_position_(b);
     while (true) {
+      int c = current_position_(b);
       if (!include_decl(b, l + 1)) break;
       if (!empty_element_parsed_guard_(b, "schema_0", c)) break;
-      c = current_position_(b);
     }
     return true;
   }
@@ -585,11 +579,10 @@ public class FlatbuffersParser implements PsiParser, LightPsiParser {
   //     ) *
   private static boolean schema_1(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "schema_1")) return false;
-    int c = current_position_(b);
     while (true) {
+      int c = current_position_(b);
       if (!schema_1_0(b, l + 1)) break;
       if (!empty_element_parsed_guard_(b, "schema_1", c)) break;
-      c = current_position_(b);
     }
     return true;
   }
@@ -604,7 +597,6 @@ public class FlatbuffersParser implements PsiParser, LightPsiParser {
   private static boolean schema_1_0(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "schema_1_0")) return false;
     boolean r;
-    Marker m = enter_section_(b);
     r = namespace_decl(b, l + 1);
     if (!r) r = type_decl(b, l + 1);
     if (!r) r = enum_decl(b, l + 1);
@@ -612,7 +604,6 @@ public class FlatbuffersParser implements PsiParser, LightPsiParser {
     if (!r) r = file_extension_decl(b, l + 1);
     if (!r) r = file_identifier_decl(b, l + 1);
     if (!r) r = attribute_decl(b, l + 1);
-    exit_section_(b, m, null, r);
     return r;
   }
 
@@ -674,21 +665,18 @@ public class FlatbuffersParser implements PsiParser, LightPsiParser {
   private static boolean type_decl_0(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "type_decl_0")) return false;
     boolean r;
-    Marker m = enter_section_(b);
     r = consumeToken(b, TABLE);
     if (!r) r = consumeToken(b, STRUCT);
-    exit_section_(b, m, null, r);
     return r;
   }
 
   // field_decl *
   private static boolean type_decl_4(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "type_decl_4")) return false;
-    int c = current_position_(b);
     while (true) {
+      int c = current_position_(b);
       if (!field_decl(b, l + 1)) break;
       if (!empty_element_parsed_guard_(b, "type_decl_4", c)) break;
-      c = current_position_(b);
     }
     return true;
   }
@@ -751,11 +739,10 @@ public class FlatbuffersParser implements PsiParser, LightPsiParser {
   // ( COMMA value ) *
   private static boolean value_2_1_0_1(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "value_2_1_0_1")) return false;
-    int c = current_position_(b);
     while (true) {
+      int c = current_position_(b);
       if (!value_2_1_0_1_0(b, l + 1)) break;
       if (!empty_element_parsed_guard_(b, "value_2_1_0_1", c)) break;
-      c = current_position_(b);
     }
     return true;
   }

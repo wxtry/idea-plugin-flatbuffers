@@ -13,7 +13,7 @@ import com.pdehaan.flatbuffers.psi.*;
 
 public class FlatbuffersNamespaceDeclImpl extends ASTWrapperPsiElement implements FlatbuffersNamespaceDecl {
 
-  public FlatbuffersNamespaceDeclImpl(ASTNode node) {
+  public FlatbuffersNamespaceDeclImpl(@NotNull ASTNode node) {
     super(node);
   }
 
